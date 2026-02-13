@@ -1,0 +1,212 @@
+/* ==========================================
+   VARIABLES Y CONFIGURACIÓN GLOBAL
+   ========================================== */
+:root{
+  --verde-principal:#2E7D32;
+  --verde-claro:#A5D6A7;
+  --marron:#8D6E63;
+  --beige:#F5F5DC;
+  --gris:#CFD8DC;
+  --texto:#2b2b2b;
+  --max-width:1100px;
+  --gap:1.25rem;
+  /* Tipografías seguras para web con fallbacks */
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Reset ligero */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  color:var(--texto);
+  background:var(--beige);
+  line-height:1.5;
+}
+
+/* Contenedor centrado */
+.container{
+  width:90%;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+/* ==========================================
+   HEADER Y NAVEGACIÓN
+   ========================================== */
+.site-header{
+  background:linear-gradient(90deg,var(--verde-claro),var(--verde-principal));
+  color:#fff;
+  padding:.75rem 0;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:.75rem}
+.logo{width:40px;height:40px;object-fit:contain}
+.site-title{font-size:1.25rem;font-weight:600}
+
+/* Navegación */
+.main-nav ul{
+  list-style:none;
+  display:flex;
+  gap:1rem;
+  align-items:center;
+}
+.main-nav a{
+  color:#fff;
+  text-decoration:none;
+  padding:.35rem .5rem;
+  border-radius:4px;
+  font-weight:600;
+}
+.main-nav a:hover{background:rgba(255,255,255,0.12)}
+
+/* ==========================================
+   ÁREA PRINCIPAL
+   ========================================== */
+.main-content{padding:2rem 0}
+.hero-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--gap);
+  align-items:start;
+  background:#fff;
+  padding:1.25rem;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Columnas */
+.col{padding:.5rem}
+.logo-large{max-width:160px;height:auto;display:block;margin:0 auto}
+.desc-col h2{color:var(--marron);margin-bottom:.5rem}
+.desc-col p{margin-bottom:.75rem}
+.desc-col ul{list-style:disc;margin-left:1.25rem;color:#444}
+
+/* Imagen de la tienda */
+.store-photo{
+  width:100%;
+  height:auto;
+  border-radius:6px;
+  display:block;
+  object-fit:cover;
+}
+
+/* Footer */
+.site-footer{
+  margin-top:1.5rem;
+  background:var(--gris);
+  color:#222;
+  padding:1rem 0;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--gap);
+  align-items:start;
+}
+.footer-col strong{display:block;margin-bottom:.35rem;color:var(--marron)}
+.footer-note{text-align:center;padding-top:.5rem;color:#555;font-size:.85rem}
+
+/* Asistente de accesibilidad*/
+.visually-hidden{
+  position:absolute!important;
+  height:1px;width:1px;
+  overflow:hidden;clip:rect(1px,1px,1px,1px);
+  white-space:nowrap;border:0;padding:0;margin:-1px;
+}
+/* Reja de productos: 3 columnas */
+.products-grid {
+  display: grid;
+  /* Definimos 3 columnas de igual tamaño */
+  grid-template-columns: repeat(3, 1fr); 
+  /* El espacio entre tarjetas */
+  gap: var(--gap);
+  /* Centra las tarjetas dentro del grid si sobran espacios */
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Estilo de cada tarjeta de producto */
+.product-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+  /* Flexbox interno para centrar todo el contenido verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+/* Control de las imágenes */
+.product-image {
+  max-width: 100%;
+  height: 200px;      /* Altura fija para que todas las filas queden niveladas */
+  object-fit: contain; /* Evita que la imagen se deforme, la centra en su espacio */
+  margin-bottom: 1rem;
+  display: block;
+  transition: transform 0.3s ease; /* Esto hace que el crecimiento sea suave y no un salto brusco */
+
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1); /* 1.1 equivale al 110% de su tamaño original */
+}
+
+
+/* Estilos de texto dentro de la tarjeta */
+.product-title {
+  font-size: 1.2rem;
+  color: var(--marron);
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-weight: bold;
+  color: var(--verde-principal);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Media queries */
+/* ==========================================
+   TABLETS Y LAPTOPS PEQUEÑAS (Menos de 1024px)
+   ========================================== */
+@media (max-width:1023px){
+  /* Pasamos de 3 columnas a 2 para que el contenido no se amontone */
+  .hero-grid{grid-template-columns:repeat(2,1fr)}
+  .products-grid, .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Ajustamos la reja de productos y el pie de página a 2 columnas */
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ==========================================
+   Dispositivos Móviles (Menos de 768px)
+   ========================================== */
+@media (max-width:767px){
+  /* El header pasa de horizontal a vertical (logo arriba, menú abajo) */
+  .header-inner{flex-direction:column;gap:.75rem;align-items:flex-start}
+  /* Todas las cuadrículas pasan a 1 sola columna para facilitar la lectura */
+  .products-grid {grid-template-columns: 1fr;}
+  /* El menú permite que los links salten de línea si no caben (wrap) */
+  .main-nav ul{flex-wrap:wrap;gap:.5rem}
+  .hero-grid{grid-template-columns:1fr}
+  /* Reducimos tamaños para optimizar el espacio visual en pantallas pequeñas */
+  .footer-grid{grid-template-columns:1fr}
+  .logo-large{max-width:140px}
+  .site-title{font-size:1rem}
+}
