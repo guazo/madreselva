@@ -180,6 +180,25 @@ body{
   line-height: 1.4;
 }
 
+.social-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+/* Estilo para el icono */
+.icon-svg {
+  width: 24px;   /* Tamaño del icono */
+  height: 24px;
+  fill: var(--marron); /* Tu color de paleta */
+  transition: fill 0.3s, transform 0.3s;
+}
+
+/* Efecto hover */
+.social-links a:hover .icon-svg {
+  fill: var(--verde-principal); /* Cambia a verde al pasar el mouse */
+  transform: translateY(-4px) scale(1.15); /* Mueve 4px hacia arriba e incrementa el tamaño en el icono*/
+}
 /* Media queries */
 /* ==========================================
    TABLETS Y LAPTOPS PEQUEÑAS (Menos de 1024px)
